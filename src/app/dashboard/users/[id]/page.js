@@ -1,4 +1,4 @@
-const page = () => {
+const UpdateUser = () => {
   return (
     <div>
       update users
@@ -6,4 +6,4 @@ const page = () => {
   )
 }
 
-export default page
+export default UpdateUser
