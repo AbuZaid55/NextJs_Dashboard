@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import { FaPlus } from "react-icons/fa6";
 
 const Users = () => {
   const users = [
@@ -42,22 +43,23 @@ const Users = () => {
   ]
 
   return (
+    <>
     <table className="w-full text-center">
       <thead className="bg-color2 text-white">
         <tr>
-          <th className="py-2">Name</th>
-          <th className="py-2">Email</th>
-          <th className="py-2">Created At</th>
-          <th className="py-2">Role</th>
-          <th className="py-2">Status</th>
-          <th className="py-2">Action</th>
+          <th className="py-3">Name</th>
+          <th className="py-3">Email</th>
+          <th className="py-3">Created At</th>
+          <th className="py-3">Role</th>
+          <th className="py-3">Status</th>
+          <th className="py-3">Action</th>
         </tr>
       </thead>
       <tbody>
         {
           users.map((user, i) => {
             return <tr key={i}>
-              <td className="py-2 border-b-2 border-color2 flex items-center justify-center gap-3">
+              <td className="py-1 border-b-2 border-color2 flex items-center justify-center gap-3">
                 <Image
                   src={user.profile}
                   width="50"
@@ -78,6 +80,8 @@ const Users = () => {
         }
       </tbody>
     </table>
+    <div className="flex items-center justify-end"><Link href="/dashboard/users/add" className="p-2 bg-color2 text-white m-4 text-4xl rounded-full cursor-pointer shadow-md"><FaPlus/></Link></div>
+    </>
   )
 }
 

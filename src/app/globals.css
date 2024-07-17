@@ -9,6 +9,7 @@
     box-sizing: border-box;
     text-decoration: none;
     color: inherit;
+    outline: none;
 }
 .hide-scrollbar::-webkit-scrollbar{
     display: none;
