@@ -23,7 +23,16 @@ const Navbar = () => {
       if (path[2] === "products") {
         setPathname("Update Product")
       }
-    } else {
+    } 
+    else if(path.length === 4 && path[3]==="add"){
+      if(path[2]==="users"){
+        setPathname("Add User")
+      }
+      if(path[2]==="products"){
+        setPathname("Add Product")
+      }
+    }
+    else {
       setPathname(path[path.length - 1])
     }
   }, [path])

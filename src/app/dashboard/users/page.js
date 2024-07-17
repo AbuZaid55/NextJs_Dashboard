@@ -10,35 +10,35 @@ const Users = () => {
       email: "zaid70979@gmail.com",
       createdAt: "06/04/2024",
       role: "Admin",
-      status: "Online",
+      isActive: true,
     },{
       profile: "https://avatar.iran.liara.run/public/boy",
       name: "Abu Zaid",
       email: "zaid70979@gmail.com",
       createdAt: "06/04/2024",
       role: "Admin",
-      status: "Online",
+      isActive: false,
     },{
       profile: "https://avatar.iran.liara.run/public/boy",
       name: "Abu Zaid",
       email: "zaid70979@gmail.com",
       createdAt: "06/04/2024",
       role: "Admin",
-      status: "Online",
+      isActive: true,
     },{
       profile: "https://avatar.iran.liara.run/public/boy",
       name: "Abu Zaid",
       email: "zaid70979@gmail.com",
       createdAt: "06/04/2024",
       role: "Admin",
-      status: "Online",
+      isActive: false,
     },{
       profile: "https://avatar.iran.liara.run/public/boy",
       name: "Abu Zaid",
       email: "zaid70979@gmail.com",
       createdAt: "06/04/2024",
       role: "Admin",
-      status: "Online",
+      isActive: true,
     },
   ]
 
@@ -70,7 +70,7 @@ const Users = () => {
               <td className="py-2 border-b-2 border-color2">{user.email}</td>
               <td className="py-2 border-b-2 border-color2">{user.createdAt}</td>
               <td className="py-2 border-b-2 border-color2">{user.role}</td>
-              <td className="py-2 border-b-2 border-color2">{user.status}</td>
+              <td className={`py-2 border-b-2 font-semibold border-color2 ${user.isActive?"text-color2":""}`}>{(user.isActive)?"Online":"Offline"}</td>
               <td className="py-2 border-b-2 border-color2">
                 <Link className="py-1 px-2 bg-blue-600 text-white mx-1 rounded-md" href={`/dashboard/users/${i}`}>View</Link>
                 <button className="h-7 px-2 rounded-md bg-red-500 text-white">Delete</button>
