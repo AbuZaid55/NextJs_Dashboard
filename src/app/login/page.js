@@ -1,11 +1,15 @@
 "use client"
 import { useState } from "react"
 import {signIn} from 'next-auth/react'
+import { useRouter } from "next/navigation"
+import { toast } from "react-toastify"
 
 const Login = () => {
   const [data,setData]=useState({email:"",password:""})
+  const router = useRouter()
 
-  const submitForm = async()=>{
+  const submitForm = async(e)=>{
+    e.preventDefault()
     try {
       const res =  await signIn("credentials",{
         redirect:false,
@@ -13,12 +17,12 @@ const Login = () => {
         password:data.password
       })
       if(res.error){
-        console.log(res.error)
+        toast.error(res.error)
       }else{
-        console.log(res)
+        router.push("/")
       }
     } catch (err) {
-      console.log(err.message)
+      toast.error(err.message)
     }
   }
   const handleInput=(e)=>{

@@ -1,5 +1,5 @@
 import CredentialsProvider from 'next-auth/providers/credentials'
-import {login} from '@/actions' 
+import {login} from '@/login' 
 
 const authOptions = {
     providers:[

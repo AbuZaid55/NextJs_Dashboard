@@ -2,6 +2,7 @@
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import { toast } from "react-toastify"
 
 const SignUp = () => {
   const router = useRouter()
@@ -9,10 +10,10 @@ const SignUp = () => {
   const submitForm = async()=>{
     try {
       const res =  await axios.post("/api/signup",data)
-      console.log(res?.data?.message)
+      toast.success(res?.data?.message)
       router.push("/login")
     } catch (error) {
-      console.log(error?.response?.data?.message)
+      toast.error(error?.response?.data?.message)
     }
   }
   const handleInput=(e)=>{
