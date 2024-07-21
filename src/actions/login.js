@@ -3,7 +3,7 @@ import emailValidator from 'email-validator'
 import userModel from "@/models/userModel"
 import bcrypt from 'bcrypt'
 
-export const login = async(credentials)=>{
+export default async function login(credentials){
     await connectDb() 
     try {
         const {email,password}=credentials 

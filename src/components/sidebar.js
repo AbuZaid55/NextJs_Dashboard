@@ -19,10 +19,12 @@ const Sidebar = () => {
   return (
     <div className='h-screen p-4 flex'>
       <div className="bg-color1 w-64 shadow-lg rounded-xl">
+      <Link href="/">
       <div className={`${quickSand.className} mb-8 px-4 py-6 border-b-2 border-color2`}>
         <p className={`${kalam.className} -mb-3 text-color2`}>NextJs</p> 
         <p className='text-4xl'>Dashboard</p>
     </div>
+      </Link>
 
       <ul className={`${quickSand.className} text-2xl flex flex-col gap-5`}>
         <li className={`${pathname==="dashboard"?"bg-color2 text-white":""} ${style}`}><Link href="/dashboard">Dashboard</Link></li>
