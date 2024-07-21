@@ -1,47 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
 import { FaPlus } from "react-icons/fa6";
+import  getUsers  from "@/actions/getUsers";
 
-const Users = () => {
-  const users = [
-    {
-      profile: "https://avatar.iran.liara.run/public/boy",
-      name: "Abu Zaid",
-      email: "zaid70979@gmail.com",
-      createdAt: "06/04/2024",
-      role: "Admin",
-      isActive: true,
-    },{
-      profile: "https://avatar.iran.liara.run/public/boy",
-      name: "Abu Zaid",
-      email: "zaid70979@gmail.com",
-      createdAt: "06/04/2024",
-      role: "Admin",
-      isActive: false,
-    },{
-      profile: "https://avatar.iran.liara.run/public/boy",
-      name: "Abu Zaid",
-      email: "zaid70979@gmail.com",
-      createdAt: "06/04/2024",
-      role: "Admin",
-      isActive: true,
-    },{
-      profile: "https://avatar.iran.liara.run/public/boy",
-      name: "Abu Zaid",
-      email: "zaid70979@gmail.com",
-      createdAt: "06/04/2024",
-      role: "Admin",
-      isActive: false,
-    },{
-      profile: "https://avatar.iran.liara.run/public/boy",
-      name: "Abu Zaid",
-      email: "zaid70979@gmail.com",
-      createdAt: "06/04/2024",
-      role: "Admin",
-      isActive: true,
-    },
-  ]
-
+const Users = async() => {
+  const res = await getUsers()  
+  const users = res.users
   return (
     <>
     <table className="w-full text-center">

@@ -16,9 +16,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    img: {
+    profile: {
         type: String,
-        required:false
+        default:"https://avatar.iran.liara.run/public/boy",
     },
     isAdmin: {
         type: Boolean,
