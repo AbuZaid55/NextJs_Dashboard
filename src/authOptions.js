@@ -1,6 +1,6 @@
 import CredentialsProvider from 'next-auth/providers/credentials'
 import login from '@/actions/login'
-import updateToken from './actions/updatetoken'
+import getUserById from './actions/getuserbyid'
 
 const authOptions = {
     providers: [
@@ -9,7 +9,7 @@ const authOptions = {
                 const _id = credentials._id
                 try {
                     if (_id) {
-                        const user = await updateToken(_id)
+                        const user = await getUserById(_id)
                         if (!user.success) {
                             throw new Error(user.message)
                         }

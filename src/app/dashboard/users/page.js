@@ -1,11 +1,19 @@
+"use client"
 import Link from "next/link"
 import Image from "next/image"
 import { FaPlus } from "react-icons/fa6";
 import  getUsers  from "@/actions/getUsers";
+import { useEffect, useState } from "react";
 
-const Users = async() => {
-  const res = await getUsers()  
-  const users = res.users
+const Users = () => {
+  const [users,setUser]=useState([])
+  useEffect(()=>{
+    (async function(){
+    const res = await getUsers()  
+    const users = res.users
+    setUser(users)
+    })()
+  },[])
   return (
     <>
     <table className="w-full text-center">
@@ -14,7 +22,6 @@ const Users = async() => {
           <th className="py-3">Name</th>
           <th className="py-3">Email</th>
           <th className="py-3">Created At</th>
-          <th className="py-3">Role</th>
           <th className="py-3">Status</th>
           <th className="py-3">Action</th>
         </tr>
@@ -33,10 +40,9 @@ const Users = async() => {
               </td>
               <td className="py-2 border-b-2 border-color2">{user.email}</td>
               <td className="py-2 border-b-2 border-color2">{user.createdAt}</td>
-              <td className="py-2 border-b-2 border-color2">{user.role}</td>
-              <td className={`py-2 border-b-2 font-semibold border-color2 ${user.isActive?"text-color2":""}`}>{(user.isActive)?"Online":"Offline"}</td>
+              <td className={`py-2 border-b-2 font-semibold border-color2 ${user.isAdmin?"text-color2":""}`}>{(user.isAdmin)?"Admin":""}</td>
               <td className="py-2 border-b-2 border-color2">
-                <Link className="py-1 px-2 bg-blue-600 text-white mx-1 rounded-md" href={`/dashboard/users/${i}`}>View</Link>
+                <Link className="py-1 px-2 bg-blue-600 text-white mx-1 rounded-md" href={`/dashboard/users/${user._id}`}>View</Link>
                 <button className="h-7 px-2 rounded-md bg-red-500 text-white">Delete</button>
               </td>
             </tr>

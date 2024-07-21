@@ -1,7 +1,8 @@
+"use server"
 import { connectDb } from "@/DB/dbConn"
 import userModel from "@/models/userModel"
 
-export default async function updateToken(_id){
+export default async function getuserbyid(_id){
     await connectDb()
     try {
         if(!_id){ 
@@ -11,7 +12,9 @@ export default async function updateToken(_id){
         if(!user){
             return {success:false,message:"Invalid User"}
         }
-        return {success:true,user:user}
+        user.password=undefined
+        const data = {success:true,user:user}
+        return JSON.parse(JSON.stringify(data))
     } catch (error) {
         return {success:false,message:error.message}
     }
